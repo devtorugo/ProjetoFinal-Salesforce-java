@@ -1,4 +1,4 @@
-package org.example;
+package fiap.ddd.sprint4;
 
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
