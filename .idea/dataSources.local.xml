@@ -12,6 +12,7 @@
       <schema-mapping>
         <introspection-scope>
           <node kind="schema">
+            <name qname="RM553121" />
             <name qname="@" />
             <name qname="PUBLIC" />
           </node>
