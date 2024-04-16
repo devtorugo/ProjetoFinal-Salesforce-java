@@ -52,7 +52,7 @@ public class TermoRepository {
         }
 
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " ( ACEITAR_TERMO) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ACEITAR_TERMO) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
             stmt.setBoolean(1, termo.isAceitarTermo());
             stmt.executeUpdate();
 
