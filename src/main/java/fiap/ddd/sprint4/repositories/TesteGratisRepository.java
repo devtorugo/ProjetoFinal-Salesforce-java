@@ -112,8 +112,9 @@ public class TesteGratisRepository {
         int idRegiao = rs.getInt("ID_PAIS");
         int idTermo = rs.getInt("ID_TERMO");
 
-        Regiao regiao = RegiaoRepository.getById(idRegiao).orElse(null);
-        Termo termo = TermoRepository.getById(idTermo).orElse(null);
+        Regiao regiao = new RegiaoRepository().getByID(idRegiao).orElse(null);
+        Termo termo = new TermoRepository().getById(idTermo).orElse(null);
+
         return new TesteGratis(id, nome, telefone, email, senha, empresa, idioma, regiao, termo);
     }
 }

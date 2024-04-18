@@ -14,7 +14,7 @@ public class RegiaoRepository {
     private static final String TB_NAME = "REGIAOPAIS";
     private static final Log4Logger logger = new Log4Logger(RegiaoRepository.class);
 
-    public static Optional<Regiao> getByID(int id){
+    public Optional<Regiao> getByID(int id){
         try (Connection conn = OracleDbConfiguration.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID_PAIS = ?")) {
             stmt.setInt(1, id);
