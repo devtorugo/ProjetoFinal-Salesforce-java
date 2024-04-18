@@ -46,7 +46,7 @@ public class RegiaoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response atualizarRegiao(@PathParam("id") int id, Regiao regiaoAtualizada) {
         try {
-            if (regiaoRepository.getById(id).isEmpty()) {
+            if (regiaoRepository.getByID(id).isEmpty()) {
                 return Response.status(Response.Status.NOT_FOUND).entity("Região não encontrada").build();
             }
             regiaoAtualizada.setId(id);
@@ -62,7 +62,7 @@ public class RegiaoResource {
     @Path("/{id}")
     public Response deletarRegiao(@PathParam("id") int id) {
         try {
-            if (regiaoRepository.getById(id).isEmpty()) {
+            if (regiaoRepository.getByID(id).isEmpty()) {
                 return Response.status(Response.Status.NOT_FOUND).entity("Região não encontrada").build();
             }
             regiaoRepository.delete(id);
