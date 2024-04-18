@@ -112,9 +112,22 @@ public class TesteGratisRepository {
         int idRegiao = rs.getInt("ID_PAIS");
         int idTermo = rs.getInt("ID_TERMO");
 
-        Regiao regiao = new RegiaoRepository().getByID(idRegiao).orElse(null);
-        Termo termo = new TermoRepository().getById(idTermo).orElse(null);
+
+        if (idRegiao <= 0 || idTermo <= 0) {
+            return null;
+        }
+
+        RegiaoRepository regiaoRepository = new RegiaoRepository();
+        TermoRepository termoRepository = new TermoRepository();
+
+        Regiao regiao = regiaoRepository.getByID(idRegiao).orElse(null);
+        Termo termo = termoRepository.getById(idTermo).orElse(null);
+
+        if (regiao == null || termo == null) {
+            return null;
+        }
 
         return new TesteGratis(id, nome, telefone, email, senha, empresa, idioma, regiao, termo);
     }
+
 }
