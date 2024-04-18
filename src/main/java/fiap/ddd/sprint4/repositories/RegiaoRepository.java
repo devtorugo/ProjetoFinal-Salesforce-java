@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class RegiaoRepository {
 
-    private static final String TB_NAME = "REGIAO";
+    private static final String TB_NAME = "REGIAOPAIS";
     private static final Log4Logger logger = new Log4Logger(RegiaoRepository.class);
 
     public List<Regiao> getAll() {
