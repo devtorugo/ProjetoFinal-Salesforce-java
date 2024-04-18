@@ -29,7 +29,7 @@ public class RegiaoRepository {
         return regioes;
     }
 
-    public Optional<Regiao> getById(int id) {
+    public static Optional<Regiao> getById(int id) {
         try (Connection conn = OracleDbConfiguration.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")) {
             stmt.setInt(1, id);

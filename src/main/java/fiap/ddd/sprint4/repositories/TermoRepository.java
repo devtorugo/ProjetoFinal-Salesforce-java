@@ -29,7 +29,7 @@ public class TermoRepository {
         return termos;
     }
 
-    public Optional<Termo> getById(int id) {
+    public static Optional<Termo> getById(int id) {
         try (Connection conn = OracleDbConfiguration.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")) {
             stmt.setInt(1, id);
