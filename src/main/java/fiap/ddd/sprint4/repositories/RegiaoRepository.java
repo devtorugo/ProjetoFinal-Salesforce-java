@@ -46,14 +46,11 @@ public class RegiaoRepository {
     }
 
     public void create(Regiao regiao) {
-        if (regiao == null) {
-            logger.error("Erro ao criar a região no banco de dados: a região está nula.");
-            return;
-        }
 
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (PAIS_NOME) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, regiao.getPaisNome());
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_PAIS, PAIS_NOME) VALUES (?, ?)")) {
+            stmt.setInt(1, regiao.getId());
+            stmt.setString(2, regiao.getPaisNome());
             stmt.executeUpdate();
 
             logger.info("Região adicionada ao banco de dados: " + regiao.toString());

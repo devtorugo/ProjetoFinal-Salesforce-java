@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-233.15026.9">
-    <data-source name="@oracle.fiap.com.br" uuid="182d9beb-d440-49fc-86ee-8a98266359fb">
+    <data-source name="@oracle.fiap.com.br" uuid="53009856-fbb7-42c5-9880-90aea155845c">
       <database-info product="Oracle" version="Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production&#10;Version 19.3.0.0.0" jdbc-version="4.3" driver-name="Oracle JDBC driver" driver-version="21.5.0.0.0" dbms="ORACLE" exact-version="19.0.0.0.0" exact-driver-version="21.5">
         <extra-name-characters>$#</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -12,7 +12,6 @@
       <schema-mapping>
         <introspection-scope>
           <node kind="schema">
-            <name qname="RM553121" />
             <name qname="@" />
             <name qname="PUBLIC" />
           </node>
