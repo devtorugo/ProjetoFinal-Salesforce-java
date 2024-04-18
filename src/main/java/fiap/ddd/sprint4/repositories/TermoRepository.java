@@ -31,7 +31,7 @@ public class TermoRepository {
 
     public static Optional<Termo> getById(int id) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID_TERMO = ?")) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -61,7 +61,7 @@ public class TermoRepository {
 
     public void update(Termo termo) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE " + TB_NAME + " SET ACEITAR_TERMO = ? WHERE ID = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("UPDATE " + TB_NAME + " SET ACEITAR_TERMO = ? WHERE ID_TERMO = ?")) {
             stmt.setBoolean(1, termo.isAceitarTermo());
             stmt.setInt(2, termo.getId());
             stmt.executeUpdate();
@@ -74,7 +74,7 @@ public class TermoRepository {
 
     public void delete(int id) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + TB_NAME + " WHERE ID = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + TB_NAME + " WHERE ID_TERMO = ?")) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
             logger.info("Termo removido do banco de dados. ID: " + id);
@@ -85,7 +85,7 @@ public class TermoRepository {
     }
 
     private static Termo mapResultSetToTermo(ResultSet rs) throws SQLException {
-        int id = rs.getInt("ID");
+        int id = rs.getInt("ID_TERMO");
         boolean aceitarTermo = rs.getBoolean("ACEITAR_TERMO");
         return new Termo(id, aceitarTermo);
     }
