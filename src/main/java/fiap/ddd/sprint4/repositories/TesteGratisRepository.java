@@ -49,15 +49,16 @@ public class TesteGratisRepository {
 
     public void create(TesteGratis testeGratis) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (NOME, TELEFONE, EMAIL, SENHA, EMPRESA, IDIOMA, ID_PAIS, ID_TERMO) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
-            stmt.setString(1, testeGratis.getNome());
-            stmt.setString(2, testeGratis.getTelefone());
-            stmt.setString(3, testeGratis.getEmail());
-            stmt.setString(4, testeGratis.getSenha());
-            stmt.setString(5, testeGratis.getEmpresa());
-            stmt.setString(6, testeGratis.getIdioma());
-            stmt.setInt(7, testeGratis.getRegiao().getId());
-            stmt.setInt(8, testeGratis.getTermo().getId());
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID, NOME, TELEFONE, EMAIL, SENHA, EMPRESA, IDIOMA, ID_PAIS, ID_TERMO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+            stmt.setInt(1,testeGratis.getId());
+            stmt.setString(2, testeGratis.getNome());
+            stmt.setString(3, testeGratis.getTelefone());
+            stmt.setString(4, testeGratis.getEmail());
+            stmt.setString(5, testeGratis.getSenha());
+            stmt.setString(6, testeGratis.getEmpresa());
+            stmt.setString(7, testeGratis.getIdioma());
+            stmt.setInt(8, testeGratis.getRegiao().getId());
+            stmt.setInt(9, testeGratis.getTermo().getId());
             stmt.executeUpdate();
 
             logger.info("Teste grátis adicionado ao banco de dados: " + testeGratis.toString());
