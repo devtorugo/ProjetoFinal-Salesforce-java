@@ -85,7 +85,7 @@ public class RegiaoRepository {
         }
     }
 
-    private Regiao mapResultSetToRegiao(ResultSet rs) throws SQLException {
+    private static Regiao mapResultSetToRegiao(ResultSet rs) throws SQLException {
         int id = rs.getInt("ID");
         String paisNome = rs.getString("PAIS_NOME");
         return new Regiao(id, paisNome);

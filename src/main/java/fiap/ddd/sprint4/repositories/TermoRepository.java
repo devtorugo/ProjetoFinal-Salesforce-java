@@ -84,7 +84,7 @@ public class TermoRepository {
         }
     }
 
-    private Termo mapResultSetToTermo(ResultSet rs) throws SQLException {
+    private static Termo mapResultSetToTermo(ResultSet rs) throws SQLException {
         int id = rs.getInt("ID");
         boolean aceitarTermo = rs.getBoolean("ACEITAR_TERMO");
         return new Termo(id, aceitarTermo);
