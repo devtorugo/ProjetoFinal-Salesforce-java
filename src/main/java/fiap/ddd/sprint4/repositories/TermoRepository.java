@@ -46,14 +46,10 @@ public class TermoRepository {
     }
 
     public void create(Termo termo) {
-        if (termo == null) {
-            logger.error("Erro ao criar o termo no banco de dados: o termo está nulo.");
-            return;
-        }
-
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ACEITAR_TERMO) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setBoolean(1, termo.isAceitarTermo());
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_TERMO, ACEITAR_TERMO) VALUES (?, ?)")) {
+            stmt.setInt(1, termo.getId());
+            stmt.setBoolean(2, termo.isAceitarTermo());
             stmt.executeUpdate();
 
             logger.info("Termo adicionado ao banco de dados: " + termo.toString());
