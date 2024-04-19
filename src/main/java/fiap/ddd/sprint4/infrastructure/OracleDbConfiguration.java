@@ -9,17 +9,18 @@ public class OracleDbConfiguration {
     private static final String USER = "RM553108";
     private static final String PASSWORD = "300305";
 
-    public static Connection getConnection() {
-        try {
-            return DriverManager.getConnection(URL, USER, PASSWORD);
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-        return null;
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public void closeConnection(Connection connection) throws SQLException{
-        connection.close();
+
+    public static void closeConnection(Connection connection) {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
