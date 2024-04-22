@@ -46,6 +46,23 @@ public class TesteGratisRepository {
         }
         return Optional.empty();
     }
+    public Optional<TesteGratis> getByEmailAndPassword(String email, String senha) {
+        try (Connection conn = OracleDbConfiguration.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE EMAIL = ? AND SENHA = ?")) {
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapResultSetToTesteGratis(rs));
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Erro ao obter teste grátis por e-mail e senha do banco de dados: " + e.getMessage());
+            throw new RuntimeException("Erro ao obter teste grátis por e-mail e senha do banco de dados", e);
+        }
+        return Optional.empty();
+    }
+
 
     public void create(TesteGratis testeGratis) {
         try (Connection conn = OracleDbConfiguration.getConnection();

@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a8bd29-8471-42a3-9bcd-bb36193f8fbb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/repositories/LoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/53009856-fbb7-42c5-9880-90aea155845c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/53009856-fbb7-42c5-9880-90aea155845c/storage_v2/_src_/schema/RM553108.gdXTjA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/53009856-fbb7-42c5-9880-90aea155845c/storage_v2/_src_/schema/RM553108.gdXTjA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/53009856-fbb7-42c5-9880-90aea155845c/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/53009856-fbb7-42c5-9880-90aea155845c/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/CorsFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/OracleDbConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/OracleDbConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +105,9 @@
       <workItem from="1713467552078" duration="15913000" />
       <workItem from="1713555869136" duration="1079000" />
       <workItem from="1713556985563" duration="769000" />
-      <workItem from="1713558245509" duration="7009000" />
+      <workItem from="1713558245509" duration="8400000" />
+      <workItem from="1713624396808" duration="439000" />
+      <workItem from="1713810680301" duration="711000" />
     </task>
     <servers />
   </component>
