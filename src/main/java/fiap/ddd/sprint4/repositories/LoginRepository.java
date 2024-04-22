@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class LoginRepository {
@@ -16,9 +18,24 @@ public class LoginRepository {
     private static final String TB_NAME = "LOGIN";
     private static final Log4Logger logger = new Log4Logger(LoginRepository.class);
 
+    public List<Login> getAll() {
+        List<Login> logins = new ArrayList<>();
+        try (Connection conn = OracleDbConfiguration.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                logins.add(mapResultSetToLogin(rs));
+            }
+        } catch (SQLException e) {
+            logger.error("Erro ao obter todos os logins do banco de dados: " + e.getMessage());
+            throw new RuntimeException("Erro ao obter todos os logins do banco de dados", e);
+        }
+        return logins;
+    }
+
     public Optional<Login> getById(int id) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TB_NAME + " WHERE ID_LOGIN = ?")) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -38,7 +55,7 @@ public class LoginRepository {
         Optional<TesteGratis> testeGratis = testeGratisRepository.getByEmailAndPassword(login.getEmail(), login.getSenha());
         if (testeGratis.isPresent()) {
             try (Connection conn = OracleDbConfiguration.getConnection();
-                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID, EMAIL, SENHA) VALUES (?, ?, ?)")) {
+                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_LOGIN, EMAIL, SENHA) VALUES (?, ?, ?)")) {
                 stmt.setInt(1, login.getId());
                 stmt.setString(2, login.getEmail());
                 stmt.setString(3, login.getSenha());
@@ -58,7 +75,7 @@ public class LoginRepository {
 
     public void update(Login login) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE " + TB_NAME + " SET EMAIL = ?, SENHA = ? WHERE ID = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("UPDATE " + TB_NAME + " SET EMAIL = ?, SENHA = ? WHERE ID_LOGIN = ?")) {
             stmt.setString(1, login.getEmail());
             stmt.setString(2, login.getSenha());
             stmt.setInt(3, login.getId());
@@ -73,7 +90,7 @@ public class LoginRepository {
 
     public void delete(int id) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + TB_NAME + " WHERE ID = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + TB_NAME + " WHERE ID_LOGIN = ?")) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
             logger.info("Login removido do banco de dados. ID: " + id);
