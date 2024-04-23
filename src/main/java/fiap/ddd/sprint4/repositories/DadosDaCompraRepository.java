@@ -103,7 +103,7 @@ public class DadosDaCompraRepository {
     }
 
     private DadosDaCompra mapResultSetToDadosDaCompra(ResultSet rs) throws SQLException {
-        int id = rs.getInt("ID");
+        int id = rs.getInt("ID_COMPRA");
         Timestamp timestampData = rs.getTimestamp("DATA");
         LocalDateTime data = timestampData != null ? timestampData.toLocalDateTime() : null;
 
