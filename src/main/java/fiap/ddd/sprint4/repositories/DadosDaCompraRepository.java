@@ -52,7 +52,7 @@ public class DadosDaCompraRepository {
 
     public void create(DadosDaCompra dadosDaCompra) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_COMPRA, DATA, HORA, TOTAL, LOCAL, ID_IMAGEN, ID_FEEDBACK, ID_LOGIN) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_COMPRA, DATA, HORA, TOTAL, LOCAL, ID_IMAGENS, ID_FEEDBACK, ID_LOGIN) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
             stmt.setInt(1, dadosDaCompra.getId());
             stmt.setObject(2, dadosDaCompra.getData());
             stmt.setObject(3, dadosDaCompra.getHora());
@@ -72,7 +72,7 @@ public class DadosDaCompraRepository {
 
     public void update(DadosDaCompra dadosDaCompra) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE " + TB_NAME + " SET DATA = ?, HORA = ?, TOTAL = ?, LOCAL = ?, ID_IMAGEN = ?, ID_FEEDBACK = ?, ID_LOGIN = ? WHERE ID_COMPRA = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("UPDATE " + TB_NAME + " SET DATA = ?, HORA = ?, TOTAL = ?, LOCAL = ?, ID_IMAGENS = ?, ID_FEEDBACK = ?, ID_LOGIN = ? WHERE ID_COMPRA = ?")) {
             stmt.setObject(1, dadosDaCompra.getData());
             stmt.setObject(2, dadosDaCompra.getHora());
             stmt.setInt(3, dadosDaCompra.getTotal());
