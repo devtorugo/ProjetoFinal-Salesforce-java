@@ -55,10 +55,11 @@ public class LoginRepository {
         Optional<TesteGratis> testeGratis = testeGratisRepository.getByEmailAndPassword(login.getEmail(), login.getSenha());
         if (testeGratis.isPresent()) {
             try (Connection conn = OracleDbConfiguration.getConnection();
-                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_LOGIN, EMAIL, SENHA) VALUES (?, ?, ?)")) {
+                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_LOGIN, EMAIL, SENHA, ID_TESTE_GRATIS) VALUES (?, ?, ?, ?)")) {
                 stmt.setInt(1, login.getId());
                 stmt.setString(2, login.getEmail());
                 stmt.setString(3, login.getSenha());
+                stmt.setInt(4, testeGratis.get().getId());
                 stmt.executeUpdate();
 
                 logger.info("Login adicionado ao banco de dados: " + login.toString());
@@ -70,7 +71,6 @@ public class LoginRepository {
             throw new IllegalArgumentException("O e-mail ou a senha do login não correspondem a nenhum registro de teste grátis.");
         }
     }
-
 
 
     public void update(Login login) {
@@ -101,9 +101,14 @@ public class LoginRepository {
     }
 
     private Login mapResultSetToLogin(ResultSet rs) throws SQLException {
-        int id = rs.getInt("ID");
+        int id = rs.getInt("ID_LOGIN");
         String email = rs.getString("EMAIL");
         String senha = rs.getString("SENHA");
-        return new Login(id, email, senha, new TesteGratis()); //
+        int idTesteGratis = rs.getInt("ID_TESTE_GRATIS");
+
+        TesteGratisRepository testeGratisRepository = new TesteGratisRepository();
+        TesteGratis testeGratis = testeGratisRepository.getById(idTesteGratis).orElse(null);
+
+        return new Login(id, email, senha, testeGratis);
     }
 }
