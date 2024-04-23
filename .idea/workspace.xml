@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97a8bd29-8471-42a3-9bcd-bb36193f8fbb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/repositories/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/repositories/LoginRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="97a8bd29-8471-42a3-9bcd-bb36193f8fbb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,6 +102,7 @@
       <workItem from="1713810680301" duration="3136000" />
       <workItem from="1713814693270" duration="2941000" />
       <workItem from="1713867999445" duration="88000" />
+      <workItem from="1713895797245" duration="2057000" />
     </task>
     <servers />
   </component>
