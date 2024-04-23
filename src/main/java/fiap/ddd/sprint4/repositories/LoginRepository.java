@@ -50,7 +50,7 @@ public class LoginRepository {
     }
 
     public void create(Login login) {
-        // Verifica se o e-mail e senha do login correspondem a um registro na tabela TesteGratis
+
         TesteGratisRepository testeGratisRepository = new TesteGratisRepository();
         Optional<TesteGratis> testeGratis = testeGratisRepository.getByEmailAndPassword(login.getEmail(), login.getSenha());
         if (testeGratis.isPresent()) {
