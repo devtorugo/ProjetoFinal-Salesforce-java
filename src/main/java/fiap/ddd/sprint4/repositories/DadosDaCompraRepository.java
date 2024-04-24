@@ -124,7 +124,7 @@ public class DadosDaCompraRepository {
         Feedback feedback = feedbackRepository.getById(idFeedback).orElse(null);
         Login login = loginRepository.getById(idLogin).orElse(null);
 
-        return new DadosDaCompra(id, data, hora, total, local, imagens, feedback, login); //
+        return new DadosDaCompra(id, data, hora, total, local, imagens, feedback, login);
     }
 
 }
