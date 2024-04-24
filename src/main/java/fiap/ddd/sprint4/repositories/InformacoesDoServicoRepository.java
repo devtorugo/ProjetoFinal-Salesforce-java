@@ -48,12 +48,13 @@ public class InformacoesDoServicoRepository {
 
     public void create(InformacoesDoServico informacoesDoServico) {
         try (Connection conn = OracleDbConfiguration.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_SERVICO, NOME, DESCRICAO, CATEGORIA, PRECO) VALUES (?, ?, ?, ?, ?)")) {
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + TB_NAME + " (ID_SERVICO, NOME, DESCRICAO, CATEGORIA, PRECO, ID_COMPRA) VALUES (?, ?, ?, ?, ?, ?)")) {
             stmt.setInt(1, informacoesDoServico.getId());
             stmt.setString(2, informacoesDoServico.getNome());
             stmt.setString(3, informacoesDoServico.getDescricao());
             stmt.setString(4, informacoesDoServico.getCategoria());
             stmt.setDouble(5, informacoesDoServico.getPreco());
+            stmt.setInt(6,informacoesDoServico.getDadosDaCompra().getId());
             stmt.executeUpdate();
 
             logger.info("Informações do serviço adicionadas ao banco de dados: " + informacoesDoServico.toString());
