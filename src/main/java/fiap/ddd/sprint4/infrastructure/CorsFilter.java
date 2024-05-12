@@ -1,6 +1,5 @@
 package fiap.ddd.sprint4.infrastructure;
 
-
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;

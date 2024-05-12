@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a8bd29-8471-42a3-9bcd-bb36193f8fbb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/services/LicencaSofwareService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/Aplicacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/CorsFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/OracleDbConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/infrastructure/OracleDbConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/repositories/TesteGratisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fiap/ddd/sprint4/repositories/TesteGratisRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bene/Documents/CpJava2semestre_cp2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bene/Documents/JavaSprint4&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -107,7 +110,17 @@
       <workItem from="1713867999445" duration="88000" />
       <workItem from="1713895797245" duration="9144000" />
       <workItem from="1713957468872" duration="4760000" />
-      <workItem from="1713963662774" duration="1685000" />
+      <workItem from="1713963662774" duration="3296000" />
+      <workItem from="1714071793464" duration="1977000" />
+      <workItem from="1714074709570" duration="6816000" />
+      <workItem from="1714162343195" duration="1118000" />
+      <workItem from="1714240834608" duration="1023000" />
+      <workItem from="1714559075767" duration="647000" />
+      <workItem from="1715197306621" duration="3541000" />
+      <workItem from="1715204386125" duration="207000" />
+      <workItem from="1715260363539" duration="9000" />
+      <workItem from="1715289309074" duration="9966000" />
+      <workItem from="1715376429181" duration="15000" />
     </task>
     <servers />
   </component>

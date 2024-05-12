@@ -102,7 +102,7 @@ public class TesteGratisRepository {
             logger.info("Teste grátis atualizado no banco de dados: " + testeGratis.toString());
         } catch (SQLException e) {
             logger.error("Erro ao atualizar o teste grátis no banco de dados: " + e.getMessage());
-            throw new RuntimeException("Erro ao atualizar o teste grátis no banco de dados", e);
+            throw new RuntimeException("Erro ao atualizar o teste grátis no bnco de dados", e);
         }
     }
 
